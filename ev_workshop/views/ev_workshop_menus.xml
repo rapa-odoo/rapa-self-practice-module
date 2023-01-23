@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <menuitem id="ev_workshop_menu_root" name="EV Workshop">
+        <menuitem id="ev_workshop_first_level" name="Vehicles">
+            <menuitem id="ev_workshop_main_action" action="ev_workshop_action" name="Maintenance"/>
+        </menuitem>
+        <menuitem id="ev_workshop_first_level_menu_1" name="Settings">
+            <menuitem id="ev_purchase_main_action" action="ev_purchase_action" name="Purchase"/>
+            <menuitem id="ev_brands_main_action" action="ev_brands_action" name="Brands"/>
+        </menuitem>
+    </menuitem>
+</odoo>

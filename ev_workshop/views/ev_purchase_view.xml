@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!-- Record -->
+    <record id="ev_purchase_action" model="ir.actions.act_window">
+        <field name="name">Purchase</field>
+        <field name="res_model">ev.purchase</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Information to Display
+            </p>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="ev_purchase_form_view" model="ir.ui.view">
+        <field name="name">EV Purchase Form</field>
+        <field name="model">ev.purchase</field>
+        <field name="arch" type="xml">
+            <form string="EV Purchase Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="company_name_id"/>
+                        <field name="vehicle_type"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Tree View -->
+    <record id="ev_purchase_tree_view" model="ir.ui.view">
+        <field name="name">EV Purchase Tree View</field>
+        <field name="model">ev.purchase</field>
+        <field name="arch" type="xml">
+            <tree string="Ev Purchase Tree View">
+                <field name="name"/>
+                <field name="company_name_id"/>
+                <field name="vehicle_type"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

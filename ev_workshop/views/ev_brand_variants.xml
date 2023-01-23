@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!-- Record -->
+    <record id="ev_brand_variants" model="ir.actions.act_window">
+        <field name="name">EV Brand Variant</field>
+        <field name="res_model">ev.brand.variants</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Tree View -->
+    <record id="ev_brand_variants_tree_view" model="ir.ui.view">
+        <field name="name">EV Brand Tree View</field>
+        <field name="model">ev.brand.variants</field>
+        <field name="arch" type="xml">
+            <tree string="EV Brand variants">
+                <field name="vehicle_type"/>
+                <field name="color"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="ev_brand_variants_form_view" model="ir.ui.view">
+        <field name="name">EV Brand Form View</field>
+        <field name="model">ev.brand.variants</field>
+        <field name="arch" type="xml">
+            <form string="EV Brand variants">
+                <sheet>
+                    <group>
+                        <field name="vehicle_type"/>
+                        <field name="color"/>
+                        <field name="price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

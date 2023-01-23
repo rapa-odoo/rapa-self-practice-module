@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!-- Record -->
+    <record id="ev_brands_action" model="ir.actions.act_window">
+        <field name="name">EV Brands</field>
+        <field name="res_model">ev.brands</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Brands to Display
+            </p>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="ev_brands_form_action" model="ir.ui.view">
+        <field name="name">EV Brands Form View</field>
+        <field name="model">ev.brands</field>
+        <field name="arch" type="xml">
+            <form string="EV Brands Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                    <notebook>
+                        <page string="Other Info">
+                            <group>
+                                <field name="variant_ids"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
