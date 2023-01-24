@@ -13,7 +13,8 @@ class EvBrandVariants(models.Model):
     price = fields.Float(string="Price of Model")
     color = fields.Selection(
         string="Color",
-        selection=[('black','Black'),('white','White')]
+        selection=[('black','Black'),('white','White'),('grey','Grey'),('silver','Silver')]
     )
     # Relational Fields
     brand_variant_id = fields.Many2one('ev.brands',string="Brand")
+    

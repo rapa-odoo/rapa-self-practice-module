@@ -12,4 +12,33 @@
             </p>
         </field>
     </record>
+
+    <record id="ev_workshop_form_action" model="ir.ui.view">
+        <field name="name">EV Workshop Form View</field>
+        <field name="model">ev.workshop</field>
+        <field name="arch" type="xml">
+            <form string="EV Workshop Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="year_purchased"/>
+                        <field name="brand"/>
+                        <field name="vehicle_type"/>
+                        <field name="maintenance_stage"/>
+                    </group>
+                    <notebook>
+                        <page string= "Other Info">
+                            <group>
+                                <field name="description" placeholder="Description of Problem"/>
+                                <field name="city"/>
+                            </group>
+                        </page>
+                        <page string= "EV Mechanic">
+
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>

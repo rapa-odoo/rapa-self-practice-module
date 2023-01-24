@@ -21,9 +21,21 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="company_name_id"/>
-                        <field name="vehicle_type"/>
+                        <field name="contact"/>
+                        <field name="address"/>
+                        <field name="subtotal"/>
                     </group>
+                    <notebook>
+                        <page string="Purchase Info">
+                            <group>
+                                <field name="company_name_id"/>
+                                <field name="vehicle_type"/>
+                                <field name="color"/>
+                                <field name="price"/>
+                                <field name="seller_id"/>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
