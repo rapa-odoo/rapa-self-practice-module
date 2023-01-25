@@ -14,3 +14,4 @@ class EvMechanic(models.Model):
         ]
     )
     description = fields.Text(string="Description")
+    mechanic_id= fields.Many2one('ev.workshop')

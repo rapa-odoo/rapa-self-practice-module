@@ -14,6 +14,7 @@
         'views/ev_purchase_view.xml',
         'views/ev_brands_view.xml',
         'views/ev_brand_variants.xml',
+        'views/ev_mechanic_view.xml',
         'views/ev_workshop_menus.xml',
     ],
     'sequence': -100,

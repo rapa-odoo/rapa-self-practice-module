@@ -24,17 +24,21 @@
                         <field name="year_purchased"/>
                         <field name="brand"/>
                         <field name="vehicle_type"/>
-                        <field name="maintenance_stage"/>
                     </group>
                     <notebook>
-                        <page string= "Other Info">
+                        <page string= "Description">
                             <group>
                                 <field name="description" placeholder="Description of Problem"/>
+                                <field name="address"/>
                                 <field name="city"/>
+                                <field name="maintenance_stage"/>
                             </group>
                         </page>
-                        <page string= "EV Mechanic">
-
+                        <page string= "Other Services">
+                            <group>
+                                <field name="need_mechanic" />
+                                <field name="available_mechanic" attrs="{'invisible':[('need_mechanic','=',False)]}"/>
+                            </group>
                         </page>
                     </notebook>
                 </sheet>

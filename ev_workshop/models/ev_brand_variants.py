@@ -17,4 +17,4 @@ class EvBrandVariants(models.Model):
     )
     # Relational Fields
     brand_variant_id = fields.Many2one('ev.brands',string="Brand")
-    
+    purchase_id = fields.Many2one('ev.purchase',string="Purchase")

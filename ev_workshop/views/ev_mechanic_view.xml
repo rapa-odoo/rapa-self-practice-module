@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="ev_mechanic_action" model="ir.actions.act_window">
+        <field name="name">EV Mechanic</field>
+        <field name="res_model">ev.mechanic</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Mechanics Registered as of now
+            </p>
+        </field>
+    </record>
+
+    <record id="ev_mechanic_form_view" model="ir.ui.view">
+        <field name="name">EV Mechanic Form View</field>
+        <field name="model">ev.mechanic</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="location"/>
+                        <field name="experience"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
