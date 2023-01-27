@@ -52,4 +52,15 @@
             </tree>
         </field>
     </record>
+
+    <record id="ev_purchase_search_view" model="ir.ui.view">
+        <field name="name">EV Purchase Search View</field>
+        <field name="model">ev.purchase</field>
+        <field name="arch" type="xml">
+            <search string="EV Purchase">
+                <field name="name"/>
+                <field name="vehicle_type"/>
+            </search>
+        </field>
+    </record>
 </odoo>

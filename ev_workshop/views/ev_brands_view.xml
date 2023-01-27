@@ -34,4 +34,14 @@
             </form>
         </field>
     </record>
+    <!-- Search View -->
+    <record id="ev_brands_search_view" model="ir.ui.view">
+        <field name="name">EV Brand Search View</field>
+        <field name="model">ev.brands</field>
+        <field name="arch" type="xml">
+            <search string="Ev Brands Search">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
 </odoo>

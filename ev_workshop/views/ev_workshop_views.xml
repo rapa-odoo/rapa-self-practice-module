@@ -19,6 +19,9 @@
         <field name="arch" type="xml">
             <form string="EV Workshop Form">
                 <sheet>
+                    <header>
+                        <field name="maintenance_stage" widget="statusbar" options="{'clickable':'1'}"/>
+                    </header>
                     <group>
                         <field name="name"/>
                         <field name="year_purchased"/>
@@ -31,7 +34,6 @@
                                 <field name="description" placeholder="Description of Problem"/>
                                 <field name="address"/>
                                 <field name="city"/>
-                                <field name="maintenance_stage"/>
                             </group>
                         </page>
                         <page string= "Other Services">
