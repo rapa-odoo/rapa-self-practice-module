@@ -18,6 +18,11 @@
         <field name="model">ev.purchase</field>
         <field name="arch" type="xml">
             <form string="EV Purchase Form">
+               <header>
+                    <field name="stage" widget="statusbar" options="{'clickable': '1'}"/>
+                    <button name="action_purchase" type="object" string="Purchase"/>
+                    <button name="action_cancel_btn" type="object" string="Cancel"/>
+               </header> 
                 <sheet>
                     <group>
                         <field name="name"/>

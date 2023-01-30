@@ -30,7 +30,7 @@
         </field>
     </record>
     <!-- Search View -->
-    <record id="ev_mechanic_search_view" model="ir.ui.view">
+    <!-- <record id="ev_mechanic_search_view" model="ir.ui.view">
         <field name="name">EV Mechanic Search View</field>
         <field name="model">ev.mechanic</field>
         <field name="arch" type="xml">
@@ -38,10 +38,12 @@
                 <field name="name"/>
                 <field name="location"/>
                 <field name="experience"/>
-                <filter string="Locations" context="{'group_by': 'location'}"/>
+                <group>
+                    <filter string="Locations" context="{'group_by': 'location'}"/>
+                </group>
             </search>
         </field>
-    </record>
+    </record> -->
 
 
 </odoo>

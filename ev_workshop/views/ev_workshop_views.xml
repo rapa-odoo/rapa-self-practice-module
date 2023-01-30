@@ -18,10 +18,11 @@
         <field name="model">ev.workshop</field>
         <field name="arch" type="xml">
             <form string="EV Workshop Form">
+                <header>
+                    <field name="maintenance_stage" widget="statusbar" options="{'clickable':'1'}"/>
+                    <button name="action_request" type="object" string="Submit"/>
+                </header>
                 <sheet>
-                    <header>
-                        <field name="maintenance_stage" widget="statusbar" options="{'clickable':'1'}"/>
-                    </header>
                     <group>
                         <field name="name"/>
                         <field name="year_purchased"/>
@@ -44,6 +45,11 @@
                         </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="message_ids" />
+                    <field name="activity_ids" />
+               </div>
             </form>
         </field>
     </record>

@@ -25,9 +25,9 @@
                     </group>
                     <notebook>
                         <page string="Other Info">
-                            <group nolabel="1">
-                                <field name="variant_ids"/>
-                            </group>
+                            
+                            <field name="variant_ids"/>
+                            
                         </page>
                     </notebook>
                 </sheet>

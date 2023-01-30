@@ -10,4 +10,8 @@ class EvBrands(models.Model):
     
     # Relational Fields
     variant_ids = fields.One2many('ev.brand.variants','brand_variant_id')
+
+    _sql_constraints = [
+        ('unique_name','unique(name)','There happens to be an existing brand name, Give a unique name!')
+        ]
     

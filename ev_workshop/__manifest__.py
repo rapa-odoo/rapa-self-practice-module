@@ -7,7 +7,7 @@
     'description': "EV Workshop Module",
     'author': "Raj Patani",
     # 'installable': True,
-    'depends': ['base'],
+    'depends': ['base','mail',],
     'data': [
         'security/ir.model.access.csv',
         'views/ev_workshop_views.xml',
