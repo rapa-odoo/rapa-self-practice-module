@@ -27,7 +27,7 @@
                         <page string="Other Info">
                             
                             <field name="variant_ids"/>
-                            
+        
                         </page>
                     </notebook>
                 </sheet>

@@ -6,6 +6,7 @@
         <field name="name">Purchase</field>
         <field name="res_model">ev.purchase</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_purchase_orders': True}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No Information to Display
@@ -20,10 +21,12 @@
             <form string="EV Purchase Form">
                <header>
                     <field name="stage" widget="statusbar" options="{'clickable': '1'}"/>
-                    <button name="action_purchase" type="object" string="Purchase"/>
-                    <button name="action_cancel_btn" type="object" string="Cancel"/>
+                    <button name="action_purchase" type="object" string="Purchase" attrs="{'invisible': [('stage','in',['purchase','cancel'])]}"/>
+                    <button name="action_cancel_btn" type="object" string="Cancel" attrs="{'invisible': [('stage','in',['purchase','cancel'])]}"/>
                </header> 
                 <sheet>
+                    <widget name="web_ribbon" title="Purchased" bg_color="bg-success" attrs="{'invisible': [('stage','in',['new','cancel'])]}"/>
+                    <widget name="web_ribbon" title="Cancelled" bg_color="bg-danger" attrs="{'invisible': [('stage','in',['new','purchase'])]}"/>
                     <group>
                         <field name="name"/>
                         <field name="contact"/>
@@ -42,6 +45,11 @@
                         </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="message_ids" />
+                    <field name="activity_ids" />
+               </div>
             </form>
         </field>
     </record>
@@ -50,10 +58,13 @@
         <field name="name">EV Purchase Tree View</field>
         <field name="model">ev.purchase</field>
         <field name="arch" type="xml">
-            <tree string="Ev Purchase Tree View">
+            <tree string="Ev Purchase Tree View" decoration-success="stage == 'purchase'" decoration-bf="stage == 'purchase'" decoration-danger="stage == 'cancel'" decoration-muted="stage == 'new'">
                 <field name="name"/>
+                <field name="contact"/>
                 <field name="company_name_id"/>
                 <field name="vehicle_type"/>
+                <field name="subtotal"/>
+                <field name="stage" invisible="1"/>
             </tree>
         </field>
     </record>
@@ -64,7 +75,9 @@
         <field name="arch" type="xml">
             <search string="EV Purchase">
                 <field name="name"/>
-                <field name="vehicle_type"/>
+                <filter string="New Purchase Orders" name="purchase_orders" domain="[('stage','=','new')]"/>
+                <filter string="Brands" name="brands_groupby" context="{'group_by': 'company_name_id'}"/>
+                <filter string="Vehicle Type" name="type_groupby" context="{'group_by': 'vehicle_type'}"/>
             </search>
         </field>
     </record>
