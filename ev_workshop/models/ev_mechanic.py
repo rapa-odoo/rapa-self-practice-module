@@ -10,7 +10,7 @@ class EvMechanic(models.Model):
     location= fields.Selection(
         string="Location",
         selection=[
-            ('ahmedabad','Ahmedabad'),('delhi','Delhi'),('mumbai','Mumbai'),('banagalore','Bangalore')
+            ('ahmedabad','Ahmedabad'),('delhi','Delhi'),('mumbai','Mumbai'),('bangalore','Bangalore')
         ]
     )
     description = fields.Text(string="Description")

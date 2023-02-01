@@ -26,18 +26,19 @@ class EvWorkshop(models.Model):
     city = fields.Selection(
         string="Location",
         selection=[
-            ('ahmedabad','Ahmedabad'),('delhi','Delhi'),('mumbai','Mumbai'),('banagalore','Bangalore')
+            ('ahmedabad','Ahmedabad'),('delhi','Delhi'),('mumbai','Mumbai'),('bangalore','Bangalore')
         ]
     )
     need_mechanic = fields.Boolean(string="Need a Mechanic")
-    available_mechanic = fields.Many2one('ev.mechanic',compute="_compute_mechanic",readonly=False,store=True)
+    available_mechanic = fields.Many2one('ev.mechanic',domain="[('location','=',mechanic_id.city)]",readonly=False,store=True)
     mechanic_ids = fields.One2many('ev.mechanic','mechanic_id')
-    print("===============")
-    print(mechanic_ids.name)
+    # print("===============")
+    # print(mechanic_ids.name)
     def action_request(self):
         for record in self:
             if record.maintenance_stage == 'new':
                 record.maintenance_stage = 'req_recieved'
+    # compute="_compute_mechanic"
 
     @api.depends("available_mechanic","city")
     def _compute_mechanic(self):

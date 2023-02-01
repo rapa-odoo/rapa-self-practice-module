@@ -13,7 +13,7 @@
         <field name="model">ev.brand.variants</field>
         <field name="arch" type="xml">
             <tree string="EV Brand variants" default_order="price">
-                <field name="vehicle_type"/>
+                <field name="vehicle_type" class="fw-bold"/>
                 <field name="color"/>
                 <field name="price"/>
             </tree>

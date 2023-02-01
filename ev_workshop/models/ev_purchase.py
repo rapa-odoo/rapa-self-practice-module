@@ -32,7 +32,7 @@ class EvPurchase(models.Model):
     company_name_id = fields.Many2one('ev.brands',string="Company Name")
     # purchase_ids = fields.One2many('ev.brand.variants','purchase_id')
     variant_ids = fields.One2many(related="company_name_id.variant_ids")
-    # brand_variant_id = fields.Many2one(related='company_name_id.brand_variant_id')
+    
    
     
 

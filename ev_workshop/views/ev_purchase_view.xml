@@ -29,7 +29,7 @@
                     <widget name="web_ribbon" title="Cancelled" bg_color="bg-danger" attrs="{'invisible': [('stage','in',['new','purchase'])]}"/>
                     <group>
                         <field name="name"/>
-                        <field name="contact"/>
+                        <field name="contact" widget="phone"/>
                         <field name="address"/>
                         <field name="subtotal"/>
                     </group>
@@ -63,6 +63,7 @@
                 <field name="contact"/>
                 <field name="company_name_id"/>
                 <field name="vehicle_type"/>
+                <field name="seller_id" widget="many2one_avatar"/>
                 <field name="subtotal"/>
                 <field name="stage" invisible="1"/>
             </tree>

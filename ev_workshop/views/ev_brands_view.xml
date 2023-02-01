@@ -20,7 +20,18 @@
             <form string="EV Brands Form">
                 <sheet>
                     <group>
-                        <field name="name"/>
+                        <group>
+                            <div>
+                                <h1>
+                                    <field name="name" placeholder="Brand Name"/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group >
+                            <field name="image" widget="image" class="oe_avatar" options='{"preview_image": "image", "size": [80, 80]}'/>
+                        </group>
+                    </group>
+                    <group> 
                         <field name="description"/>
                     </group>
                     <notebook>

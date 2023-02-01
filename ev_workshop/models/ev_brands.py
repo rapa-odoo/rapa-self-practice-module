@@ -7,10 +7,10 @@ class EvBrands(models.Model):
     # Fields
     name = fields.Char(string="Brand")
     description = fields.Text(string="Description about Brand") 
-    
+    image = fields.Binary(string="Brand Logo")
     # Relational Fields
     variant_ids = fields.One2many('ev.brand.variants','brand_variant_id')
-    # order_ids = fields.One2many('ev.purchase','brand_variant_id')
+    
     _sql_constraints = [
         ('unique_name','unique(name)','There happens to be an existing brand name, Give a unique name!')
         ]
