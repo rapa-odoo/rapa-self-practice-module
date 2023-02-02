@@ -11,7 +11,12 @@ class EvBrands(models.Model):
     # Relational Fields
     variant_ids = fields.One2many('ev.brand.variants','brand_variant_id')
     
+    # order_count = fields.Integer(compute="_compute_order_count",string="Orders")
     _sql_constraints = [
         ('unique_name','unique(name)','There happens to be an existing brand name, Give a unique name!')
         ]
+
+    # def _compute_order_count(self):
+    #     for record in self:
+    #         record.order_count = len(record.order_ids)
     

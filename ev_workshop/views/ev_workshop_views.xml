@@ -40,7 +40,7 @@
                         <page string= "Other Services">
                             <group>
                                 <field name="need_mechanic" />
-                                <field name="available_mechanic" attrs="{'invisible':[('need_mechanic','=',False)]}" domain="[('location','=','city')]"/>
+                                <field name="available_mechanic" attrs="{'invisible':[('need_mechanic','=',False)]}"/>
                             </group>
                         </page>
                     </notebook>

@@ -30,8 +30,8 @@ class EvWorkshop(models.Model):
         ]
     )
     need_mechanic = fields.Boolean(string="Need a Mechanic")
-    available_mechanic = fields.Many2one('ev.mechanic',domain="[('location','=',mechanic_id.city)]",readonly=False,store=True)
-    mechanic_ids = fields.One2many('ev.mechanic','mechanic_id')
+    available_mechanic = fields.Many2one('ev.mechanic',domain="[('location','=','ahmedabad')]")
+    
     # print("===============")
     # print(mechanic_ids.name)
     def action_request(self):
@@ -39,11 +39,14 @@ class EvWorkshop(models.Model):
             if record.maintenance_stage == 'new':
                 record.maintenance_stage = 'req_recieved'
     # compute="_compute_mechanic"
+    # domain="[('location','=',workshop_ids.city)]"
 
-    @api.depends("available_mechanic","city")
+    @api.depends("mechanic_ids","city")
     def _compute_mechanic(self):
         for record in self:
             for mechanic in record.mechanic_ids:
-                print(mechanic.name)
+                if mechanic.location == mechanic.workshop_ids.city:
+                    print("============")
+                    print(mechanic.workshop_ids.city)
                 
                     
