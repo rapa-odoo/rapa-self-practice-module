@@ -14,7 +14,7 @@ class EvMechanic(models.Model):
         ]
     )
     description = fields.Text(string="Description")
-    # mechanic_id= fields.Many2one('ev.mechanic')
-    # workshop_ids = fields.One2many('ev.workshop','workshop_id')
+    
+    workshop_ids = fields.One2many('ev.workshop','mechanic_id')
 
     

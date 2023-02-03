@@ -6,8 +6,9 @@ class EvPurchase(models.Model):
     _name = "ev.purchase"
     _description = "This is EV Purchase Model"
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    # _inherits = {'ev.brands':'total_id'}
     # Fields
-    name = fields.Char(string="Customer Name",required=True)
+    name = fields.Char(string="Customer Name")
     vehicle_type = fields.Selection(
         string="Vehicle Type",
         selection=[('moped','Moped'),('bike','Bike'),('car','Car')]
@@ -32,6 +33,7 @@ class EvPurchase(models.Model):
     company_name_id = fields.Many2one('ev.brands',string="Company Name")
     # purchase_ids = fields.One2many('ev.brand.variants','purchase_id')
     variant_ids = fields.One2many(related="company_name_id.variant_ids")
+    
     
    
     
@@ -72,3 +74,9 @@ class EvPurchase(models.Model):
         for record in self:
             if record.stage == 'new':
                 record.stage = 'cancel'
+
+    # @api.depends("price")
+    # def compute_total(self):
+    #     for record in self:
+    #         record.total= sum(record.variant_ids.mapped('price'))
+                

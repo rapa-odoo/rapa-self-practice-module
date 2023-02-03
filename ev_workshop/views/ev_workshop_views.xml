@@ -20,7 +20,7 @@
             <form string="EV Workshop Form">
                 <header>
                     <field name="maintenance_stage" widget="statusbar" options="{'clickable':'1'}"/>
-                    <button name="action_request" type="object" string="Submit"/>
+                    <button name="action_request" type="object" string="Submit" attrs="{'invisible':[('maintenance_stage','in',['req_recieved','req_accepted'])]}"/>
                 </header>
                 <sheet>
                     <group>
@@ -28,6 +28,7 @@
                         <field name="year_purchased"/>
                         <field name="brand"/>
                         <field name="vehicle_type"/>
+                        <field name="assigned_mechanic" attrs="{'invisible':['|',('maintenance_stage','=','new'),('need_mechanic','=',False)]}"/>
                     </group>
                     <notebook>
                         <page string= "Description">
@@ -51,6 +52,21 @@
                     <field name="activity_ids" />
                </div>
             </form>
+        </field>
+    </record>
+
+    <record id="ev_workshop_tree" model="ir.ui.view">
+        <field name="name">EV Workshop Tree View</field>
+        <field name="model">ev.workshop</field>
+        <field name="arch" type="xml">
+            <tree string="Ev workshop tree" decoration-success="maintenance_stage == 'in_prog'">
+                <field name="name"/>
+                <field name="year_purchased"/>
+                <field name="brand"/>
+                <field name="city"/>
+                <field name="assigned_mechanic"/>
+                <field name="maintenance_stage" invisible="1"/>
+            </tree>
         </field>
     </record>
 </odoo>

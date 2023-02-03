@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <menuitem id="ev_workshop_menu_root" name="EV Workshop">
+    <menuitem id="ev_workshop_menu_root" name="EV Workshop" web_icon="ev_workshop,static/src/odoo_icon.png">
         <menuitem id="ev_workshop_first_level" name="Vehicles">
             <menuitem id="ev_workshop_main_action" action="ev_workshop_action" name="Maintenance"/>
             <menuitem id="ev_mechanic_main_action" action="ev_mechanic_action" name="EV Mechanic"/>
