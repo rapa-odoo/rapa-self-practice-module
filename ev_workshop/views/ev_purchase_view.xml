@@ -21,7 +21,7 @@
             <form string="EV Purchase Form">
                <header>
                     <field name="stage" widget="statusbar" options="{'clickable': '1'}"/>
-                    <button name="action_purchase" type="object" string="Purchase" attrs="{'invisible': [('stage','in',['purchase','cancel'])]}"/>
+                    <button name="action_purchase" type="object" class="oe_highlight" string="Purchase" attrs="{'invisible': [('stage','in',['purchase','cancel'])]}"/>
                     <button name="action_cancel_btn" type="object" string="Cancel" attrs="{'invisible': [('stage','in',['purchase','cancel'])]}"/>
                </header> 
                 <sheet>
@@ -69,7 +69,7 @@
             </tree>
         </field>
     </record>
-
+    <!-- Search View -->
     <record id="ev_purchase_search_view" model="ir.ui.view">
         <field name="name">EV Purchase Search View</field>
         <field name="model">ev.purchase</field>

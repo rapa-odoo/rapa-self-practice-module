@@ -24,7 +24,7 @@ class EvPurchase(models.Model):
 
 
     )
-    contact = fields.Char(string="Contact No.",compute="_compute_contact",store=True,readonly=False)
+    contact = fields.Char(string="Contact No.")
     address = fields.Text(string="Address")
     subtotal = fields.Float(string="Subtotal (including GST i.e-5%)", readonly=True,compute="_compute_subtotal",store=True)
     price = fields.Float(string="Price of Model", readonly=True, compute="_compute_price",store=True)
@@ -55,15 +55,11 @@ class EvPurchase(models.Model):
         for record in self:
             record.subtotal = record.price * 1.05
 
-    @api.depends("contact")
-    def _compute_contact(self):
+    @api.constrains("contact")
+    def _check_contact(self):
         for record in self:
-            print("============")
-            print(record.contact)
-            if record.contact:
-                match = re.match('^[0-9]\d{10}$',record.contact)
-            if not match:
-                raise exceptions.ValidationError("Invalid Contact Number")
+            if record.contact and len(record.contact) != 10:
+                raise exceptions.ValidationError("Invalid Contact")
 
     def action_purchase(self):
         for record in self:

@@ -12,7 +12,7 @@
             </p>
         </field>
     </record>
-
+    <!-- Form View -->
     <record id="ev_workshop_form_action" model="ir.ui.view">
         <field name="name">EV Workshop Form View</field>
         <field name="model">ev.workshop</field>
@@ -20,7 +20,7 @@
             <form string="EV Workshop Form">
                 <header>
                     <field name="maintenance_stage" widget="statusbar" options="{'clickable':'1'}"/>
-                    <button name="action_request" type="object" string="Submit" attrs="{'invisible':[('maintenance_stage','in',['req_recieved','req_accepted'])]}"/>
+                    <button name="action_request" type="object" class="oe_highlight" string="Submit" attrs="{'invisible':[('maintenance_stage','in',['req_recieved','req_accepted'])]}"/>
                 </header>
                 <sheet>
                     <group>
@@ -40,8 +40,8 @@
                         </page>
                         <page string= "Other Services">
                             <group>
-                                <field name="need_mechanic" />
-                                <field name="available_mechanic" attrs="{'invisible':[('need_mechanic','=',False)]}"/>
+                                <field name="need_mechanic" attrs="{'readonly':[('maintenance_stage','not in','new')]}"/>
+                                <field name="available_mechanic" attrs="{'invisible':[('need_mechanic','=',False)], 'readonly':[('maintenance_stage','not in','new')]}"/>
                             </group>
                         </page>
                     </notebook>
@@ -54,7 +54,7 @@
             </form>
         </field>
     </record>
-
+    <!-- Tree View -->
     <record id="ev_workshop_tree" model="ir.ui.view">
         <field name="name">EV Workshop Tree View</field>
         <field name="model">ev.workshop</field>

@@ -12,6 +12,21 @@
             </p>
         </field>
     </record>
+
+    <record id="ev_brands_tree" model="ir.ui.view">
+        <field name="name">Ev Brand Tree</field>
+        <field name="model">ev.brands</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="image" widget="image" class="oe_avatar" options='{"preview_image": "image", "size": [40, 40]}'/>
+                <field name="total_budget"/>
+            </tree>
+        </field>
+
+    </record>
+
     <!-- Form View -->
     <record id="ev_brands_form_action" model="ir.ui.view">
         <field name="name">EV Brands Form View</field>
@@ -64,4 +79,6 @@
             </search>
         </field>
     </record>
+
+    
 </odoo>
