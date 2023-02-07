@@ -36,8 +36,6 @@ class EvPurchase(models.Model):
     
     
    
-    
-
     @api.depends("variant_ids")
     def _compute_price(self):
         for record in self:

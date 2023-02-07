@@ -15,6 +15,8 @@ class EvMechanic(models.Model):
     )
     description = fields.Text(string="Description")
     
-    workshop_ids = fields.One2many('ev.workshop','mechanic_id')
+    workshop_ids = fields.One2many('ev.workshop','available_mechanic')
 
     
+    def action_cancel(self):
+        print("====")

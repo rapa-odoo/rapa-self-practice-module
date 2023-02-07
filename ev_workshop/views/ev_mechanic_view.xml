@@ -25,7 +25,17 @@
                         <field name="experience"/>
                         <field name="description"/>
                     </group>
-                </sheet>
+                    <notebook>
+                        <page string="orders">
+                            <tree string="">
+                                <field name="workshop_ids"/>
+                                <!-- <button name="action_confirm" type="object" icon="fa-check" string=" " attrs="{'invisible':['|',('status','=','accepted'),('status','=','refused')]}"/> -->
+                                <button name="action_cancel" type="object" icon="fa-times" string=" " />
+                            </tree>
+                            
+                        </page>
+                    </notebook>
+                </sheet>  
             </form>
         </field>
     </record>
