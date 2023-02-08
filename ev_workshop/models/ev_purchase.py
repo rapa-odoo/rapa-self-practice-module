@@ -31,10 +31,7 @@ class EvPurchase(models.Model):
     seller_id = fields.Many2one('res.users',string="Seller",default= lambda self: self.env.user)
     # Relational Fields
     company_name_id = fields.Many2one('ev.brands',string="Company Name")
-    # purchase_ids = fields.One2many('ev.brand.variants','purchase_id')
     variant_ids = fields.One2many(related="company_name_id.variant_ids")
-    
-    
    
     @api.depends("variant_ids")
     def _compute_price(self):

@@ -33,6 +33,7 @@ class EvWorkshop(models.Model):
     available_mechanic = fields.Many2one('ev.mechanic',domain="[('location','=',city)]",store=True,readonly=False)
     assigned_mechanic = fields.Char(string="Assigned Mechanic",readonly=True,store=True)
     mechanic_id = fields.Many2one('ev.workshop')
+    task_id = fields.Many2one('ev.mechanic')
    
     def action_request(self):
         for record in self:
