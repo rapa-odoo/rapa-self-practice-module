@@ -12,7 +12,7 @@ class EvBrands(models.Model):
     variant_ids = fields.One2many('ev.brand.variants','brand_variant_id')
     total_budget = fields.Float(compute="_compute_tb")
     order_ids = fields.One2many('ev.purchase','company_name_id')
-    order_count = fields.Integer(compute="_compute_order_count",string="Orders",store=True)
+    order_counts = fields.Integer(compute="_compute_order_count",string="Orders")
     _sql_constraints = [
         ('unique_name','unique(name)','There happens to be an existing brand name, Give a unique name!')
         ]
@@ -20,7 +20,7 @@ class EvBrands(models.Model):
 
     def _compute_order_count(self):
         for record in self:
-            record.order_count = len(record.order_ids)
+            record.order_counts = len(record.order_ids)
     def _compute_tb(self):
         for record in self:
             record.total_budget= sum(record.variant_ids.mapped('price'))

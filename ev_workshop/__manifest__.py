@@ -8,6 +8,11 @@
     'author': "Raj Patani",
     # 'installable': True,
     'depends': ['base','mail',],
+    'demo': [
+        'demo/ev_brand_demo_data.xml',
+        'demo/ev_workshop_demo_data.xml',
+        'demo/ev_mechanic_demo_data.xml',
+    ],
     'data': [
         'security/ir.model.access.csv',
         'views/ev_workshop_views.xml',

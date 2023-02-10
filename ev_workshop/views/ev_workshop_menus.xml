@@ -6,9 +6,7 @@
             <menuitem id="ev_workshop_main_action" action="ev_workshop_action" name="Maintenance"/>
             <menuitem id="ev_mechanic_main_action" action="ev_mechanic_action" name="EV Mechanic"/>
         </menuitem>
-        <menuitem id="ev_workshop_first_level_menu_1" name="Settings">
-            <menuitem id="ev_purchase_main_action" action="ev_purchase_action" name="Purchase"/>
-            <menuitem id="ev_brands_main_action" action="ev_brands_action" name="Brands"/>
-        </menuitem>
+        <menuitem id="ev_workshop_first_level_menu_1" name="Brands" action="ev_brands_action"/>
+        <menuitem id="ev_workshop_second_level_menu_2" name="Purchase" action="ev_purchase_action"/>
     </menuitem>
 </odoo>

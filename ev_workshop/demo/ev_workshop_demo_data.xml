@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="workshop_demo_data_1" model="ev.workshop">
+            <field name="name">John</field>
+            <field name="brand">1</field>
+            <field name="vehicle_type">bike</field>
+            <field name="city">ahmedabad</field>
+        </record>
+
+        <record id="workshop_demo_data_2" model="ev.workshop">
+            <field name="name">Alex</field>
+            <field name="brand">2</field>
+            <field name="vehicle_type">car</field>
+            <field name="city">bangalore</field>
+        </record>
+    </data>
+</odoo>

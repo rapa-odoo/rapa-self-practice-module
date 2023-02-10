@@ -33,10 +33,13 @@
         <field name="model">ev.brands</field>
         <field name="arch" type="xml">
             <form string="EV Brands Form">
+                <header>
+                    <button name="%(ev_purchase_action)d" type="action" string="Purchase Section"/>
+                </header>
                 <sheet>
                     <div name="button_box" class="oe_button_box">
                         <button class="oe_stat_button" type="action" icon="fa-car" name="%(ev_purchase_action)d" string="Offers Received">
-                            <field name="order_count" widget="statinfo" />
+                            <field name="order_counts" widget="statinfo" />
                         </button>
                     </div>
                     <group>

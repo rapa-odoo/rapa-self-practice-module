@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="ev_brand_demo_data_1" model="ev.brands">
+            <field name="name">Ford</field>
+            <field name="description">A German Company</field>
+        </record>
+
+        <record id="ev_brand_demo_data_2" model="ev.brands">
+            <field name="name">Tesla</field>
+            <field name="description">An EV Company</field>
+        </record>
+    </data>
+</odoo>

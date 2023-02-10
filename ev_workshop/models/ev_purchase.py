@@ -58,13 +58,15 @@ class EvPurchase(models.Model):
 
     def action_purchase(self):
         for record in self:
-            if  record.stage == 'new':
-                record.stage = 'purchase'
+            if  record.stage == 'cancel':
+                raise exceptions.UserError("Cancelled Orders can't be reverted back to Purchase Orders!")
+            record.stage = 'purchase'
 
     def action_cancel_btn(self):
         for record in self:
             if record.stage == 'new':
-                record.stage = 'cancel'
+                raise exceptions.UserError("Purchase Orders can't be Cancelled!")
+            record.stage = 'cancel'
 
     # @api.depends("price")
     # def compute_total(self):

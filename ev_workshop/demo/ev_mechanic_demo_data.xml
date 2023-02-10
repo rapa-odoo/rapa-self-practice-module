@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="ev_mechanic_demo_data_1" model="ev.mechanic">
+        <field name="name">Ram</field>
+        <field name="experience">2</field>
+        <field name="location">mumbai</field>
+    </record>
+
+    <record id="ev_mechanic_demo_data_2" model="ev.mechanic">
+        <field name="name">Kunal</field>
+        <field name="experience">3</field>
+        <field name="location">ahmedabad</field>
+    </record>
+
+    <record id="ev_mechanic_demo_data_3" model="ev.mechanic">
+        <field name="name">Avinash</field>
+        <field name="experience">3</field>
+        <field name="location">bangalore</field>
+    </record>
+
+    <record id="ev_mechanic_demo_data_4" model="ev.mechanic">
+        <field name="name">Parv</field>
+        <field name="experience">4</field>
+        <field name="location">delhi</field>
+    </record>
+</odoo>
