@@ -64,9 +64,6 @@
                             <field name="variant_ids"/>
         
                         </page>
-                        <page string="Orders">
-                            
-                        </page>
                     </notebook>
                 </sheet>
             </form>

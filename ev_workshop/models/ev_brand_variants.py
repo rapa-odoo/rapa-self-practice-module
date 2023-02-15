@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import fields,models
+from odoo import fields,models,api,exceptions
 
 class EvBrandVariants(models.Model):
     _name = "ev.brand.variants"
@@ -19,3 +19,19 @@ class EvBrandVariants(models.Model):
     # Relational Fields
     brand_variant_id = fields.Many2one('ev.brands',string="Brand")
     
+    # @api.model
+    # def create(self,vals):
+    #     res = self.env['ev.brands'].browse(vals['brand_variant_id'])
+    #     print("===========")
+    #     print(res.name)
+    #     print(vals['color'])
+    #     print(vals['vehicle_type'])
+    #     if vals['color'] in vals['vehicle_type']:
+    #         raise exceptions.ValidationError("hhhhhh")
+
+
+    #     return super().create(vals)
+        
+
+
+        

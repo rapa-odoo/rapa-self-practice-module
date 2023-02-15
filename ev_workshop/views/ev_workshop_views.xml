@@ -22,6 +22,7 @@
                 <header>
                     <field name="maintenance_stage" widget="statusbar" options="{'clickable':'1'}"/>
                     <button name="action_request" type="object" class="oe_highlight" string="Submit" attrs="{'invisible':[('maintenance_stage','in',['req_recieved','req_accepted'])]}"/>
+                    <button name="accept_req" type="object" class="oe_highlight" string="Update" attrs="{'invisible':[('maintenance_stage','in',['new'])]}"/>
                 </header>
                 <sheet>
 
@@ -69,6 +70,41 @@
                 <field name="assigned_mechanic"/>
                 <field name="maintenance_stage" invisible="1"/>
             </tree>
+        </field>
+    </record>
+
+    <record id="ev_workshop_search" model="ir.ui.view">
+        <field name="name">Ev Workshop Search View</field>
+        <field name="model">ev.workshop</field>
+        <field name="arch" type="xml">
+            <search string="Ev Workshop Search">
+                <filter string="Brands" name="brands_group_by" context="{'group_by': 'brand'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="ev_workshop_kanban" model="ir.ui.view">
+        <field name="name">Ev Kanban View</field>
+        <field name="model">ev.workshop</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="city" records_draggable="0">
+                <progressbar field="maintenance_stage" colors='{ "new": "info", "req_recieved": "warning", "in_prog": "danger", "done": "success"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div style="font-weight:bold">
+                                Name: <field name="name"/>
+                            </div>
+                            <div>
+                                Brand: <field name="brand"/>
+                            </div>
+                            <div>
+                                
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 </odoo>

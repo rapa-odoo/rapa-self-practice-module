@@ -20,8 +20,8 @@
             <form>
                 <sheet>
                     <div name="button_box" class="oe_button_box">
-                        <button class="oe_stat_button" type="action" icon="fa-car" name="%(ev_workshop_action)d">
-                            <field name="task_count" widget="statinfo"/>
+                        <button class="oe_stat_button" type="object" icon="fa-tasks" name="project_redirect">
+                            <field name="task_counts" widget="statinfo"/>
                         </button>
                     </div>
                     <group>
@@ -73,12 +73,15 @@
         <field name="name">EV Mechanic Kanban View</field>
         <field name="model">ev.mechanic</field>
         <field name="arch" type="xml">
-            <kanban>
+            <kanban default_group_by="location" records_draggable="0">
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
                             <div style="font-weight: bold">
                                 Name: <field name="name"/>
+                            </div>
+                            <div>
+                                Experience: <field name="experience"/>
                             </div>
                         </div>
                     </t>

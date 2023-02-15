@@ -7,7 +7,7 @@
     'description': "EV Workshop Module",
     'author': "Raj Patani",
     # 'installable': True,
-    'depends': ['base','mail',],
+    'depends': ['base','project','mail',],
     'demo': [
         'demo/ev_brand_demo_data.xml',
         'demo/ev_workshop_demo_data.xml',
@@ -21,6 +21,7 @@
         'views/ev_brand_variants.xml',
         'views/ev_mechanic_view.xml',
         'views/inherited_res_users_views.xml',
+        'views/inherited_project_tasks.xml',
         'views/ev_workshop_menus.xml',
     ],
     'sequence': -100,

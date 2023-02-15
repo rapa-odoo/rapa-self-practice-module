@@ -8,7 +8,7 @@ class EvWorkshop(models.Model):
     # Fields
     name = fields.Char(string="Name",required=True)
     year_purchased = fields.Char(string="Year Purchased",default= lambda self : fields.datetime.now().year)
-    description = fields.Text(string="Description")
+    description = fields.Text(string="Description",required=True)
     maintenance_stage = fields.Selection(
         string="Maintenance Stage",
         selection=[
@@ -34,6 +34,8 @@ class EvWorkshop(models.Model):
     assigned_mechanic = fields.Char(string="Assigned Mechanic",readonly=True,store=True)
     mechanic_id = fields.Many2one('ev.workshop')
     task_id = fields.Many2one('ev.mechanic')
+    project_ids = fields.One2many('project.task','workshop')
+    project_id = fields.Many2one('project.task')
    
     def action_request(self):
         for record in self:
@@ -44,6 +46,11 @@ class EvWorkshop(models.Model):
             elif record.maintenance_stage == 'new' and record.need_mechanic == False:
                 record.maintenance_stage = 'in_prog'
     
-    
+    def accept_req(self):
+        for record in self:
+            for tasks in record.project_id:
+                if tasks.accept_req:
+                    record.maintenance_stage = 'req_accepted'
+        
             
                     

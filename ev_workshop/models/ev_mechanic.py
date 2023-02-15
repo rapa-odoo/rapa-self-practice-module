@@ -17,9 +17,25 @@ class EvMechanic(models.Model):
     
     workshop_ids = fields.One2many('ev.workshop','available_mechanic')
     task_ids = fields.One2many('ev.workshop','task_id')
-    task_count = fields.Integer(compute="_compute_task",store=True)
+    task_counts = fields.Integer(compute="_compute_task")
 
     def _compute_task(self):
         for record in self:
-            record.task_count = len(record.task_ids)
+            record.task_counts = len(record.workshop_ids)
+
+    def project_redirect(self):
+        # breakpoint()
+
+        for record in self:
+            
+            res=  {
+                'name': ("Projects"),
+                'type': 'ir.actions.act_window',
+                'res_model': 'project.project',
+                # 'res_id': 
+                'view_mode': 'kanban',
+                
+                
+            }
+            return res
     

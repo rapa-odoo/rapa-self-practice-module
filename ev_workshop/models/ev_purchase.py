@@ -30,7 +30,7 @@ class EvPurchase(models.Model):
     price = fields.Float(string="Price of Model", readonly=True, compute="_compute_price",store=True)
     seller_id = fields.Many2one('res.users',string="Seller",default= lambda self: self.env.user)
     # Relational Fields
-    company_name_id = fields.Many2one('ev.brands',string="Company Name")
+    company_name_id = fields.Many2one('ev.brands',string="Company Name",domain="[('id','=',active_id)]")
     variant_ids = fields.One2many(related="company_name_id.variant_ids")
    
     @api.depends("variant_ids")
@@ -64,9 +64,15 @@ class EvPurchase(models.Model):
 
     def action_cancel_btn(self):
         for record in self:
-            if record.stage == 'new':
+            if record.stage == 'purchase':
                 raise exceptions.UserError("Purchase Orders can't be Cancelled!")
             record.stage = 'cancel'
+
+    # @api.model
+    # def create(self,vals):
+    #     res = self.env['ev.brands'].browse(vals['company_name_id'])
+    #     print("------------")
+    #     print(res.order_ids)
 
     # @api.depends("price")
     # def compute_total(self):

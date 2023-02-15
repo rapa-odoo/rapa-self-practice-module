@@ -7,6 +7,6 @@
             <menuitem id="ev_mechanic_main_action" action="ev_mechanic_action" name="EV Mechanic"/>
         </menuitem>
         <menuitem id="ev_workshop_first_level_menu_1" name="Brands" action="ev_brands_action"/>
-        <menuitem id="ev_workshop_second_level_menu_2" name="Purchase" action="ev_purchase_action"/>
+        <!-- <menuitem id="ev_workshop_second_level_menu_2" name="Purchase" action="ev_purchase_action"/> -->
     </menuitem>
 </odoo>
